@@ -1,42 +1,42 @@
-// it('By ID', () => {
-//     cy.visit('http://www.facebook.com/')
-//     cy.get ('#email')
-// })
+it('By ID', () => {
+    cy.visit('http://www.facebook.com/')
+    cy.get ('#email')
+})
 
 
-// it('By Class', () => {
-//     cy.visit('https://docs.cypress.io/api/commands/get#Syntax')
-//     cy.get ('.DocSearch')
-// })
+it('By Class', () => {
+    cy.visit('https://docs.cypress.io/api/commands/get#Syntax')
+    cy.get ('.DocSearch')
+})
 
-// it('By tag', () => {
-//     cy.visit('https://docs.cypress.io/api/commands/get#Syntax')
-//     cy.get ('nav')
-// })
+it('By tag', () => {
+    cy.visit('https://docs.cypress.io/api/commands/get#Syntax')
+    cy.get ('nav')
+})
 
-// it('By tag value', () => {
-//     cy.visit('http://www.facebook.com/')
-//     cy.get ('[name="pass"]')
-// })
-
-
-// it('By different tag', () => {
-//     cy.visit('http://www.facebook.com/')
-//     cy.get ('[data-testid="royal_login_button"][type="submit"]')
-// })
+it('By tag value', () => {
+    cy.visit('http://www.facebook.com/')
+    cy.get ('[name="pass"]')
+})
 
 
-// it('By different types', () => {
-//     cy.visit('http://www.facebook.com/')
-//     cy.get ('a[role="button"][rel="async"]')
-// })
+it('By different tag', () => {
+    cy.visit('http://www.facebook.com/')
+    cy.get ('[data-testid="royal_login_button"][type="submit"]')
+})
+
+
+it('By different types', () => {
+    cy.visit('http://www.facebook.com/')
+    cy.get ('a[role="button"][rel="async"]')
+})
 
 
 
-// it.only('By contains name', () => {
-//     cy.visit('https://next.privat24.ua/').wait(1000)
-//     cy.get ('*[class^="card"]')
-// })
+it.only('By contains name', () => {
+    cy.visit('https://next.privat24.ua/').wait(1000)
+    cy.get ('*[class^="card"]')
+})
 
 
 
