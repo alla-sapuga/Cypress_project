@@ -50,3 +50,6 @@ it.only('Using Get with Fond and Eq', () => {
     cy.visit('https://docs.cypress.io/api/commands/get#Selector').wait(1000)
     cy.get('main').find('div').find('nav').find('ul').find('li').find('a').eq(3)
 })
+
+
+///комментарий
