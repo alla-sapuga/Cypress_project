@@ -1,6 +1,6 @@
 export class Transfers {
 
-    typeDebitCardData(cardNumber, expDate, cvv){
+    typeDebitCardData(cardNumber,expDate,cvv){
         cy.get('[data-qa-node="numberdebitSource"]')
             .type(cardNumber)
             .get('[data-qa-node="expiredebitSource"]')
@@ -9,14 +9,14 @@ export class Transfers {
             .type(cvv)
     }
 
-    typeName(firstName,lastName){
+    typeDebitName(firstName,lastName){
         cy.get('[data-qa-node="firstNamedebitSource"]')
             .type(firstName)
             .get('[data-qa-node="lastNamedebitSource"]')
             .type(lastName) 
     }
 
-    typeReceiverCard(card) {
+    typeReceiverCard(card){
         cy.get('[data-qa-node="numberreceiver"]')
             .type(card)
     }
@@ -38,32 +38,29 @@ export class Transfers {
             .click()
     }
 
-    checkPayerCard(card) {
+    checkPayerAndReceiverCard(payerCard,receiverCard){
         cy.get('[data-qa-node="payer-card"]')
-            .should('have.text', card)
+            .should('have.text', payerCard)
+            .get('[data-qa-node="receiver-card"]')
+            .should('have.text', receiverCard)
     }
 
-    checkRecieverCard(card) {
-        cy.get('[data-qa-node="receiver-card"]')
-            .should('have.text', card)
-    }
-
-    checkPayerAmount(amount) {
+    checkPayerAmount(amount){
         cy.get('[data-qa-node="payer-amount"]')
             .should('have.text', amount)
     }
 
-    checkPayerCurrency(currency) {
+    checkPayerComission(currency){
         cy.get('[data-qa-node="payer-currency"]')
             .should('have.text', currency)
     }
 
-    checkRecieverAmount(amount) {
+    checkRecieverAmount(amount){
         cy.get('[data-qa-node="receiver-amount"]')
             .should('have.text', amount)
     }
 
-    checkRecieverCurrency(currency) {
+    checkRecieverCurrency(currency){
         cy.get('[data-qa-node="receiver-currency"]')
             .should('have.text', currency)
     }
