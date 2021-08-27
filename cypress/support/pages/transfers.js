@@ -1,14 +1,5 @@
 export class Transfers {
 
-    typeDebitCardData(cardNumber,expDate,cvv){
-        cy.get('[data-qa-node="numberdebitSource"]')
-            .type(cardNumber)
-            .get('[data-qa-node="expiredebitSource"]')
-            .type(expDate)
-            .get('[data-qa-node="cvvdebitSource"]')
-            .type(cvv)
-    }
-
     typeDebitName(firstName,lastName){
         cy.get('[data-qa-node="firstNamedebitSource"]')
             .type(firstName)
@@ -21,21 +12,11 @@ export class Transfers {
             .type(card)
     }
 
-    typeAmount(amount){
-        cy.get('[data-qa-node="amount"]')
-            .type(amount)
-    }
-
     typeComment(comment){
         cy.get('[data-qa-node="toggle-comment"]')
             .click()
             .get('[data-qa-node="comment"]')
             .type(comment)
-    }
-
-    submitPayment(){
-        cy.get('button[type="submit"]')
-            .click()
     }
 
     checkPayerAndReceiverCard(payerCard,receiverCard){
@@ -81,9 +62,7 @@ export class Transfers {
         cy.get('[data-qa-node="comment"]')
             .should('have.text', comment)
     }
-
-
-
+    
 }
 
 export const transfers = new Transfers()    
