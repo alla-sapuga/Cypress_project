@@ -29,6 +29,9 @@ it ('check error state of payment in the archive / public session', () => {
   cy.intercept("next.privat24.ua/api/p24/pub/archive", {
     fixture: "archiveResponse/error.json",
   });
+  cy.wait(3000)
+  basePage.open("https://next.privat24.ua/history/transactions?lang=en");
+  //archivePage.selectArchiveMenu();
   
   basePage.open("https://next.privat24.ua?lang=en");
   archivePage.selectArchiveMenu();
