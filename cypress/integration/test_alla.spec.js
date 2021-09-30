@@ -1,6 +1,6 @@
 /// <reference types="Cypress" />
 
-import { contextType } from "react-bootstrap/lib/Accordion"
+//import { contextType } from "react-bootstrap/lib/Accordion"
 
 const logGroup = '[data-cy="LogGroup"]'
 
