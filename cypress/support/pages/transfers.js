@@ -33,7 +33,7 @@ export class Transfers {
 
     checkPayerComission(currency){
         cy.get('[data-qa-node="payer-currency"]')
-            .should('have.text', currency)
+           .should('have.text', currency)
     }
 
     checkRecieverAmount(amount){
@@ -47,14 +47,15 @@ export class Transfers {
     }
 
     checkTotal(amount,currency){
-        cy.get('[data-qa-node="total"]')
-            .find('b')
-            .eq(0)
-            .should('contain.text', amount)
+        cy.get('[data-qa-node="total"]div')
+            // .find('b')
+            // .eq(0)
+            // .should('contain.text', amount)
 
-            .get('[data-qa-node="total"]')
-            .find('b')
-            .eq(1)
+            // .get('[data-qa-node="total"]')
+            // .find('b')
+            // .eq(1)
+            .should('contain.text', amount)
             .should('contain.text', currency)
     }
 

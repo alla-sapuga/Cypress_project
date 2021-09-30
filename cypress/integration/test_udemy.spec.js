@@ -8,11 +8,11 @@ import { archivePage } from "../support/pages/archive"
 
 // import * as mobileReplenishment from "../support/pages/mobileReplenishment"
 
-beforeEach("setup success response with stub", () => {
-  cy.intercept("https://next.privat24.ua/api/p24/pub/confirm/check?", {
-    fixture: "confirmResponse/success.json",
-  });
-});
+// beforeEach("setup success response with stub", () => {
+//   cy.intercept("https://next.privat24.ua/api/p24/pub/confirm/check?", {
+//     fixture: "confirmResponse/success.json",
+//   });
+// });
 
 //a,b,e
 
@@ -25,16 +25,16 @@ it.skip ('check success state of payment in the archive / public session', () =>
   archivePage.selectArchiveMenu();
 })
 
-it ('check error state of payment in the archive / public session', () => {
-  cy.intercept("next.privat24.ua/api/p24/pub/archive", {
-    fixture: "archiveResponse/error.json",
-  });
-  cy.wait(3000)
-  basePage.open("https://next.privat24.ua/history/transactions?lang=en");
-  //archivePage.selectArchiveMenu();
+it.skip ('check error state of payment in the archive / public session', () => {
+  // cy.intercept("next.privat24.ua/api/p24/pub/archive", {
+  //   fixture: "archiveResponse/error.json",
+  // });
   
   basePage.open("https://next.privat24.ua?lang=en");
   archivePage.selectArchiveMenu();
+
+  //cy.wait(2000).get('tbody').toMatchImageSnapshot();
+
 })
 
 it.skip ('Replenishment of Ukraine phone number', () => {
@@ -56,7 +56,7 @@ it.skip ('Replenishment of Ukraine phone number', () => {
       .click();    
 })
 
-it.skip ('Money transfer between foreign cards', () => {
+it ('Money transfer between foreign cards', () => {
     basePage.open('https://next.privat24.ua/money-transfer/card?lang=en')
     cy.wait(3000)
     basePage.typeDebitCardData('4552331448138217','0524','111')
@@ -68,9 +68,12 @@ it.skip ('Money transfer between foreign cards', () => {
     basePage.submitPayment()
     transfers.checkPayerAndReceiverCard('4552 3314 4813 8217','5309 2330 3476 5085')
     transfers.checkPayerAmount('300 UAH')
-    transfers.checkPayerComission('85.73 UAH')
+    transfers.checkPayerComission('84.88 UAH')
     transfers.checkRecieverAmount('300 UAH')
     transfers.checkRecieverCurrency('0 UAH')
-    transfers.checkTotal('385.73','UAH')
+    transfers.checkTotal('384.88','UAH')
     transfers.checkComment('Cypress test')
+
+    //cy.wait(2000).get('[class^="paymentDetails"]').toMatchImageSnapshot();
+    cy.wait(2000).document().toMatchImageSnapshot();
 })
